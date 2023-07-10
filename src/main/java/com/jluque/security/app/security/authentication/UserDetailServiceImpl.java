@@ -1,7 +1,8 @@
-package com.jluque.security.app.security;
+package com.jluque.security.app.security.authentication;
 
 import com.jluque.security.app.entity.Usuario;
 import com.jluque.security.app.repository.UsuarioRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,9 +17,11 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+
         Usuario usuario = usuarioRepository
                 .findOneByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("El usuario con email " + email + " no existe"));
+
         return new UserDetailsImpl(usuario);
     }
 }

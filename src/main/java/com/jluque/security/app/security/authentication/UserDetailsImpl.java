@@ -1,4 +1,4 @@
-package com.jluque.security.app.security;
+package com.jluque.security.app.security.authentication;
 
 import com.jluque.security.app.entity.Usuario;
 import lombok.AllArgsConstructor;
