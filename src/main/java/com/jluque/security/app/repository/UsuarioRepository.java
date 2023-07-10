@@ -1,11 +1,13 @@
 package com.jluque.security.app.repository;
 
+import com.jluque.security.app.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.jluque.security.app.entity.Usuario;
+import java.util.Optional;
 
 @Repository	
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
+    Optional<Usuario> findOneByEmail(String email);
 }
